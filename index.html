@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#262626">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Fightime">
+  <title>Fightime</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap">
+  <link rel="stylesheet" href="style.css?v=5">
+</head>
+<body data-phase="prep" data-colors="orange">
+
+<div class="app">
+  <header class="bar">
+    <button id="settingsBtn" class="hdr-btn hdr-left" aria-label="Réglages">
+      <svg viewBox="0 0 24 24"><path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/></svg>
+    </button>
+    <div class="hdr-title">
+      <div id="modeTitle">TABATA</div>
+      <div id="totalTime">00:00</div>
+    </div>
+    <button id="clockBtn" class="hdr-btn hdr-right" aria-label="Afficher durée totale ou temps restant">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 12 8.5 8.5"/><path d="M12 2v2"/></svg>
+    </button>
+    <button id="resetBtn" class="reset-btn" aria-label="Réinitialiser">
+      <svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.3-5.7"/><path d="M20 4v5h-5"/></svg>
+    </button>
+  </header>
+
+  <section id="current" class="panel current">
+    <div id="curLabel" class="cur-label">PRÉPARER</div>
+    <div id="curTime" class="cur-time">00:10</div>
+  </section>
+
+  <section id="next" class="panel next" data-type="work">
+    <div id="nextLabel" class="next-label">EXERCICE</div>
+    <div id="nextTime" class="next-time">00:20</div>
+  </section>
+
+  <section class="dock">
+    <button id="leftStat" class="stat">
+      <span id="leftVal" class="stat-val stat-blue">8</span>
+      <span id="leftLbl" class="stat-lbl">ROUNDS RESTANTS</span>
+    </button>
+    <div class="play-wrap">
+      <button id="playBtn" class="play" aria-label="Commencer">
+        <svg id="playIcon" viewBox="0 0 100 100"><circle cx="50" cy="50" r="43" class="play-ring"/><path d="M40 32 L70 50 L40 68 Z" class="play-glyph"/></svg>
+      </button>
+      <span id="playLbl" class="play-lbl">COMMENCER</span>
+    </div>
+    <div id="rightStat" class="stat">
+      <span id="rightVal" class="stat-val stat-yellow">2</span>
+      <span id="rightLbl" class="stat-lbl">CYCLES RESTANTS</span>
+    </div>
+  </section>
+
+  <nav class="tabs">
+    <button class="tab" data-mode="tabata">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 13V9"/><path d="M10 2h4"/><path d="M12 2v3"/><path d="m18 6 1.5-1.5"/></svg>
+      <span>TABATA</span>
+    </button>
+    <button class="tab" data-mode="rounds">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 12 8 8"/></svg>
+      <span>ROUNDS</span>
+    </button>
+    <button class="tab" data-mode="chrono">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg>
+      <span>CHRONOMÈTRE</span>
+    </button>
+    <button class="tab" data-mode="custom">
+      <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 1-7.1 2.9"/></svg>
+      <span>PLUS</span>
+    </button>
+  </nav>
+</div>
+
+<!-- Paramètres généraux (roue dentée) -->
+<div id="settingsSheet" class="sheet sheet-full" hidden>
+  <div class="sheet-inner">
+    <header class="sheet-head">
+      <span></span>
+      <h2>PARAMÈTRES</h2>
+      <button class="sheet-done" data-close>FAIT</button>
+    </header>
+    <section id="prefRows" class="rows"></section>
+    <p class="version">VERSION: 1.0.0</p>
+  </div>
+</div>
+
+<!-- Éditeur des intervalles (icône montre) -->
+<div id="editorSheet" class="sheet sheet-editor" hidden>
+  <div class="sheet-inner">
+    <header class="sheet-head">
+      <button id="editorCancel" class="sheet-cancel">ANNULER</button>
+      <h2 id="editorTitle">TABATA</h2>
+      <button id="editorSave" class="sheet-done">ENREGISTRER</button>
+    </header>
+    <p id="runningNote" class="note" hidden>Les changements s’appliqueront au prochain départ.</p>
+    <div class="band">INTERVALLES</div>
+    <section id="intervalRows" class="rows"></section>
+    <div class="band">OPTIONS</div>
+    <section id="optionRows" class="rows"></section>
+    <button id="newTimerBtn" class="btn-new">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="9" fill="currentColor"/><path d="M12 13V9" stroke="#3a3a3a" stroke-width="2" stroke-linecap="round"/><path d="M10 2.5h4M12 2.5V4M18.5 5.5l1.5-1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      AJOUTER UN NOUVEAU MINUTEUR
+    </button>
+  </div>
+</div>
+
+<!-- Molettes de sélection d'une durée ou d'un nombre -->
+<div id="wheelSheet" class="sheet sheet-top" hidden>
+  <div class="sheet-inner">
+    <header class="sheet-head">
+      <button id="wheelCancel" class="sheet-cancel">ANNULER</button>
+      <h2 id="wheelTitle"></h2>
+      <button id="wheelOk" class="sheet-done">OK</button>
+    </header>
+    <p id="wheelHint" class="wheel-hint"></p>
+    <div id="wheels" class="wheels"></div>
+  </div>
+</div>
+
+<!-- Choix dans une liste (sonorité, voix, format) -->
+<div id="pickerSheet" class="sheet sheet-full sheet-top" hidden>
+  <div class="sheet-inner">
+    <header class="sheet-head">
+      <button class="sheet-back" id="pickerBack">‹</button>
+      <h2 id="pickerTitle"></h2>
+      <span></span>
+    </header>
+    <section id="pickerList" class="rows"></section>
+  </div>
+</div>
+
+<div id="flash" class="flash" hidden></div>
+
+<!-- Plus : préréglages -->
+<div id="plusSheet" class="sheet sheet-full" hidden>
+  <div class="sheet-inner">
+    <header class="sheet-head">
+      <span></span>
+      <h2>PRÉRÉGLAGES</h2>
+      <button class="sheet-done" data-close>FAIT</button>
+    </header>
+    <h3 class="section-title">Mes préréglages</h3>
+    <section id="customList" class="list"></section>
+    <h3 class="section-title">Modèles</h3>
+    <section id="builtinList" class="list"></section>
+  </div>
+</div>
+
+<script src="app.js?v=5"></script>
+</body>
+</html>
