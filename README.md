@@ -4,7 +4,7 @@
 
 Timer sportif en web app (PWA) : Tabata, rounds de boxe/MMA, chronomètre et minuteurs personnalisés.
 
-**👉 [Ouvrir l'app](https://mickael1988.github.io/fightime/)** — sur iPhone : Safari › Partager › « Sur l'écran d'accueil ».
+**👉 [Ouvrir l'app](https://fightime-phi.vercel.app)** — sur iPhone : Safari › Partager › « Sur l'écran d'accueil ».
 
 ## Fonctionnalités
 
