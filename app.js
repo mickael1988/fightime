@@ -988,6 +988,23 @@ document.addEventListener('keydown', e => {
   else if (e.code === 'KeyL') addLap();
 });
 
+/* ---------- Écran de démarrage ---------- */
+
+const SPLASH_MIN = 1200; // durée minimale d'affichage (ms)
+const SPLASH_MAX = 3000; // ne bloque jamais plus longtemps, même si le chargement traîne
+
+function hideSplash() {
+  const splash = $('splash');
+  if (!splash || splash.classList.contains('hide')) return;
+  splash.classList.add('hide');
+  splash.addEventListener('transitionend', () => splash.remove(), { once: true });
+  setTimeout(() => splash.remove(), 800);
+}
+
+$('splash').onclick = hideSplash;
+setTimeout(hideSplash, SPLASH_MAX);
+window.addEventListener('load', () => setTimeout(hideSplash, Math.max(0, SPLASH_MIN - performance.now())));
+
 document.querySelector('.version').textContent = `VERSION: ${VERSION}`;
 render();
 
