@@ -1,9 +1,10 @@
 // Hors ligne : tous les fichiers de l'app sont mis en cache à l'installation.
 // Réseau d'abord pour avoir la dernière version, cache si pas de réseau ou réseau trop lent.
-const CACHE = 'fightime-v7';
+const CACHE = 'fightime-v8';
 const ASSETS = [
-  './', './index.html', './style.css?v=7', './app.js?v=7',
-  './manifest.webmanifest', './icon.svg', './icon-192.png', './icon-512.png',
+  './', './index.html', './style.css?v=8', './app.js?v=8',
+  './manifest.webmanifest', './logo.png', './favicon-32.png', './apple-touch-icon.png',
+  './icon-192.png', './icon-512.png', './icon-maskable-512.png',
   './fonts/bebas-neue-latin.woff2',
 ];
 const NETWORK_TIMEOUT = 3000;
