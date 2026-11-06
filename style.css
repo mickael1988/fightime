@@ -1,3 +1,12 @@
+/* Bebas Neue (SIL Open Font License), embarquée pour fonctionner hors ligne */
+@font-face {
+  font-family: "Bebas Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/bebas-neue-latin.woff2") format("woff2");
+}
+
 /* Couleurs des phases : --c-* = fond, --*-ink = texte posé dessus */
 :root,
 body[data-colors=orange] {

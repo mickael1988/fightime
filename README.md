@@ -20,3 +20,7 @@ python3 -m http.server 8000
 ```
 
 Puis ouvrir http://localhost:8000.
+
+## Crédits
+
+Police [Bebas Neue](https://fonts.google.com/specimen/Bebas+Neue) par Dharma Type, sous licence SIL Open Font License 1.1, incluse dans `fonts/` pour le fonctionnement hors ligne.
