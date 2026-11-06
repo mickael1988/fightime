@@ -115,12 +115,8 @@ svg { display: block; }
   overflow: hidden;
 }
 
+/* Couleurs fixes du thème : panneau principal = 1re couleur, panneau suivant = 2e couleur */
 .current { background: var(--prep); color: var(--prep-ink); padding: 8px 4px; gap: 1dvh; }
-body[data-phase=work] .current { background: var(--work); color: var(--work-ink); }
-body[data-phase=rest] .current { background: var(--rest); color: var(--rest-ink); }
-body[data-phase=done] .current { background: var(--done); color: var(--done-ink); }
-body[data-phase=cool] .current { background: var(--cool); color: var(--cool-ink); }
-body.warn .current { background: var(--warn); color: var(--warn-ink); }
 
 .cur-label { font-size: min(22vw, 11dvh); margin-top: max(2dvh, 26px); }
 .cur-time { font-size: min(46vw, 27dvh); font-variant-numeric: tabular-nums; letter-spacing: -.01em; }
@@ -128,10 +124,6 @@ body.paused .cur-time { animation: blink 1s steps(2) infinite; }
 @keyframes blink { 50% { opacity: .3; } }
 
 .next { background: var(--work); color: var(--work-ink); padding: 1.6dvh 4px 1.2dvh; }
-.next[data-type=prep] { background: var(--prep); color: var(--prep-ink); }
-.next[data-type=rest] { background: var(--rest); color: var(--rest-ink); }
-.next[data-type=cool] { background: var(--cool); color: var(--cool-ink); }
-.next[data-type=end] { background: var(--panel-2); color: var(--text); }
 .next-label { font-size: min(10vw, 5dvh); }
 .next-time { font-size: min(24vw, 12dvh); font-variant-numeric: tabular-nums; }
 

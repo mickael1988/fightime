@@ -1,7 +1,7 @@
 // Cache hors ligne : fichiers de l'app et polices Google
-const CACHE = 'fightime-v5';
+const CACHE = 'fightime-v6';
 const ASSETS = [
-  './', './index.html', './style.css?v=5', './app.js?v=5',
+  './', './index.html', './style.css?v=6', './app.js?v=6',
   './manifest.webmanifest', './icon.svg', './icon-192.png', './icon-512.png',
 ];
 
